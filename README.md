@@ -1,0 +1,1 @@
+# lambda-aws-secrets-cross-accounts
