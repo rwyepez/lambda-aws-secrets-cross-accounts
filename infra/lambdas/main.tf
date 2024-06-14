@@ -38,6 +38,12 @@ resource "aws_lambda_function" "user_lambda_function" {
   source_code_hash = data.archive_file.lambda_zip.output_base64sha256
   filename         = data.archive_file.lambda_zip.output_path
   timeout          = 30
+
+  environment {
+    variables = {
+      ACCOUNT_ID = var.account_id_env
+    }
+  }
 }
 #Cloudwatch log group to list created images role
 resource "aws_cloudwatch_log_group" "user_lambda_logs" {
